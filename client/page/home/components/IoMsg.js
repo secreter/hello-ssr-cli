@@ -11,13 +11,13 @@ class IoMsg extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            time:''
-        }
-        this.initSocket()
+            time: ''
+        };
+        this.initSocket();
     }
 
     render(){
-        const {time}=this.state
+        const {time}=this.state;
         return (
             <div className={''}>
                 {time}
@@ -25,17 +25,15 @@ class IoMsg extends React.Component{
         );
     }
 
-
     initSocket=()=>{
         socket.on('news',(data) =>{
             console.log(data);
             socket.emit('my other event',{ my: 'data' });
         });
         socket.on('time',(data) =>{
-            console.log(data);
             this.setState({
-                time:data.time
-            })
+                time: data.time
+            });
         });
     }
 }

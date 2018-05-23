@@ -17,7 +17,7 @@ const initialize=(server)=>{
         });
         setInterval(()=>{
             socket.emit('time',{ time: new Date() });
-        },1000)
+        },1000);
     });
 };
 
